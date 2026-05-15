@@ -1,0 +1,33 @@
+:root {
+  --bg-primary: #151a25;
+  --bg-panel: #1b2131;
+  --bg-card: #202739;
+  --text-main: #ffffff;
+  --text-muted: #8c97ad;
+  --border-color: #2b3548;
+  --neon-cyan: #2cf5f7;
+  --neon-cyan-glow: rgba(44, 245, 247, 0.2);
+  --neon-cyan-bg: rgba(44, 245, 247, 0.1);
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}

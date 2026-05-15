@@ -1,0 +1,76 @@
+:root{
+  --bg:#0e2940;
+  --panel:#12293a;
+  --muted:#9fb0c0;
+  --accent:#2ad0ff;
+  --card:#133247;
+}
+
+.domotic-root{
+  display:flex;
+  height:calc(100vh - 40px);
+  gap:18px;
+  padding:20px;
+  background:linear-gradient(180deg,#0b2332 0%, #0f2e45 100%);
+  color:#d7eef8;
+  box-sizing:border-box;
+}
+
+.sidebar-left{
+  width:220px;
+  background:rgba(255,255,255,0.02);
+  border-radius:10px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.brand{background:var(--accent);color:#042230;width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.search input{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)}
+.devices-list h4{margin:6px 0;color:var(--muted)}
+.device-item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:var(--muted);cursor:pointer}
+.device-item.active{background:linear-gradient(90deg, rgba(42,208,255,0.12), rgba(42,208,255,0.04));border-color:rgba(42,208,255,0.35);color:#bff6ff}
+.device-icon{width:20px;height:20px;background:rgba(255,255,255,0.02);border-radius:4px}
+
+.main-center{flex:1;display:flex;flex-direction:column}
+.main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.main-header h1{font-size:28px;margin:0}
+.add-device{background:var(--accent);border:none;color:#012428;padding:8px 12px;border-radius:8px}
+
+.cards-panel{background:transparent;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);flex:1}
+.cards-panel h5{color:var(--muted);margin:0 0 12px 0}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);text-align:center}
+.card.highlight{box-shadow:0 0 0 3px rgba(42,208,255,0.06);border-color:rgba(42,208,255,0.3)}
+.card-icon{width:36px;height:36px;margin:0 auto 10px;background:rgba(255,255,255,0.03);border-radius:6px}
+.card-title{font-weight:600}
+.card-sub{font-size:12px;color:var(--muted);margin-top:6px}
+
+.sidebar-right{width:300px;display:flex;flex-direction:column;gap:12px}
+.panel{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.panel h6{margin:8px 0 14px 0;text-align:center;color:#bfeefc;font-weight:700}
+.thermo-values{display:flex;gap:12px;align-items:center}
+.set-temp{font-size:28px;font-weight:700}
+.current-temp{font-size:14px;color:var(--muted)}
+.thermo-controls button{margin-right:6px;padding:6px 10px;border-radius:6px;border:none;background:rgba(255,255,255,0.02);color:var(--muted);cursor:pointer}
+.toggle-row{display:flex;align-items:center;gap:8px;margin-top:8px;color:var(--muted)}
+
+/* Energy panel - centered large checkboxes like reference */
+.panel.energy{padding-top:20px;padding-bottom:20px}
+.panel.energy h6{letter-spacing:0.6px}
+.energy-row{margin-top:6px}
+.energy-row label{display:flex;align-items:center;gap:14px;justify-content:center;font-size:20px;color:var(--muted);padding:12px 0}
+.energy-row input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:20px;height:20px;border-radius:4px;border:2px solid rgba(255,255,255,0.8);background:#fff;cursor:pointer}
+.energy-row input[type="checkbox"]:checked{background:var(--accent);border-color:var(--accent)}
+
+/* Stays panel - large centered list with separators and subtle middle highlight */
+.panel.stays{padding:6px 12px 18px 12px;position:relative;overflow:hidden}
+.panel.stays ul{list-style:none;padding:0;margin:6px 0 0 0}
+.panel.stays li{padding:18px 8px;text-align:center;font-size:20px;color:var(--muted)}
+.panel.stays li + li{border-top:1px solid rgba(255,255,255,0.02)}
+.panel.stays::after{content:'';position:absolute;left:0;right:0;top:40%;height:64px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(0,0,0,0.03));pointer-events:none}
+
+@media (max-width:1000px){
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .sidebar-left{display:none}
+}
