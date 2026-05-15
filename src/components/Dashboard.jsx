@@ -13,6 +13,8 @@ export default function Dashboard() {
   const [solarPanels, setSolarPanels] = useState(true);
   const [powerReserve, setPowerReserve] = useState(false);
   const [autoReg, setAutoReg] = useState(true);
+  const [expandedStay, setExpandedStay] = useState(null);
+  const [openDropdowns, setOpenDropdowns] = useState({});
 
   const devices = [
     { id: 'entrance', icon: <Cctv size={32} />, name: 'Entrance camera', status: 'Active' },
@@ -22,6 +24,14 @@ export default function Dashboard() {
     { id: 'parasols', icon: <Umbrella size={32} />, name: 'Parasols', status: 'Deactivated at 21:00' },
     { id: 'garden', icon: <Lamp size={32} />, name: 'Garden lights', status: 'Active' },
   ];
+
+  const staysData = {
+    'Kitchen': ['Lights', 'AC'],
+    'Living room': ['Lights', 'Blinds'],
+    'Bedrooms': ['Light', 'Heater'],
+    'Bath': ['Heater', 'Vent'],
+    'Garden': ['Sprinklers', 'Lights'],
+  };
 
   return (
     <div className="dashboard-container">
@@ -155,14 +165,47 @@ export default function Dashboard() {
 
             <div>
               <div className="panel-label">STAYS</div>
-              <div className="stays-list">
-                {['Kitchen', 'Living room', 'Bedrooms', 'Bath', 'Garden'].map((room, index) => (
-                  <div key={index} className="stay-item">
-                    <span>{room}</span>
-                    <ChevronDown size={16} />
-                  </div>
-                ))}
-              </div>
+                <div className="stays-list">
+                  {Object.keys(staysData).map((room) => (
+                    <div key={room} className="stay-block">
+                      <div
+                        className={`stay-item ${expandedStay === room ? 'expanded' : ''}`}
+                        onClick={() => setExpandedStay(prev => prev === room ? null : room)}
+                      >
+                        <span>{room}</span>
+                        <ChevronDown size={16} />
+                      </div>
+
+                      {expandedStay === room && (
+                        <div className="stay-sublist">
+                          {staysData[room].map((sub) => {
+                            const key = `${room}|${sub}`;
+                            const open = !!openDropdowns[key];
+                            return (
+                              <div key={sub} className="stay-subitem" onClick={(e) => e.stopPropagation()}>
+                                <button
+                                  className="subitem-button"
+                                  onClick={() => setOpenDropdowns(prev => ({ ...prev, [key]: !prev[key] }))}
+                                >
+                                  {sub}
+                                </button>
+                                {open && (
+                                  <div className="sub-dropdown">
+                                    <select defaultValue="">
+                                      <option value="">Select action</option>
+                                      <option value="on">Turn on</option>
+                                      <option value="off">Turn off</option>
+                                    </select>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
             </div>
 
           </div>

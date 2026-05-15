@@ -504,3 +504,56 @@
   color: var(--text-main);
   border-bottom-color: var(--text-main);
 }
+
+/* Stay sublist and subitem styles */
+.stay-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.stay-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0 14px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+
+.stay-subitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 10px;
+}
+
+.subitem-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.subitem-button:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.sub-dropdown {
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.sub-dropdown select {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 8px 10px;
+  border-radius: 6px;
+  min-width: 140px;
+}
