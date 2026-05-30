@@ -23,7 +23,8 @@ export default function Dashboard() {
     { id: 'garage', icon: <Warehouse size={32} />, name: 'Garage door', status: 'Deactivated at 23:51' },
     { id: 'parasols', icon: <Umbrella size={32} />, name: 'Parasols', status: 'Deactivated at 21:00' },
     { id: 'gardens', icon: <Lamp size={32} />, name: 'Garden lights fury', status: 'Active' },
-    { id: 'Forest', icon: <Lamp size={32} />, name: 'Forest Equip', status: 'Active' },
+    { id: 'Forest', icon: <Store size={32} />, name: 'Forest Equip', status: 'Active' },
+    { id: 'Mavens', icon: <Umbrella size={32} />, name: 'Mavens Requip', status: 'Active' },
   ];
 
   const staysData = {
